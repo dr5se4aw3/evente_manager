@@ -15,7 +15,7 @@
 
   <div class="field">
     <%= f.label :note %><br />
-    <%= f.text_field :note, autocomplete: "note" %>
+    <%= f.text_area :note, autocomplete: "note" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

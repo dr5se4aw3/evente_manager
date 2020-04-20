@@ -3,13 +3,13 @@
 - rails 5.2.4
 
 ### カタログ設計
-https://docs.google.com/spreadsheets/d/1g6VjlIhCdv4GajZKZUATBKjqc-xRu3REBSpybzzvxlc/edit?usp=sharing
+https://docs.google.com/spreadsheets/d/1g6VjlIhCdv4GajZKZUATBKjqc-xRu3REBSpybzzvxlc/edit#gid=749667738
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/1g6VjlIhCdv4GajZKZUATBKjqc-xRu3REBSpybzzvxlc/edit#gid=749344846
 ### テーブル定義書
 https://docs.google.com/spreadsheets/d/1g6VjlIhCdv4GajZKZUATBKjqc-xRu3REBSpybzzvxlc/edit#gid=695520456
 ### ER図
-https://drive.google.com/file/d/1-7h3jAjMtah9ljFhN97vsLTdENFa7w8i/view?usp=sharing
+https://drive.google.com/file/d/1MdodQxuJJlLbHjLy2P-aWr7VHC_8XMOp/view?usp=sharing
 ### 画面遷移図
 https://drive.google.com/file/d/1ENcAngBuQWpoL-txvYZbmIAJfFZ61mlD/view?usp=sharing
 ### ワイヤーフレーム

@@ -15,9 +15,8 @@
 
   <div class="field">
     <%= f.label :note %><br />
-    <%= f.text_area :name, autocomplete: "note" %>
+    <%= f.text_field :note, autocomplete: "note" %>
   </div>
-
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div><%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></div>

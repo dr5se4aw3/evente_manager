@@ -1,5 +1,11 @@
 <h2>イベント一覧</h2>
 <%= link_to 'イベント新規作成', new_event_path %>
-<% @events.each do |event| %>
-  <%= render 'event', event: event %>
+<%= month_calendar(attribute: :started_at, events: @events) do |date, events| %>
+  <%= date %>
+
+  <% events.each do |event| %>
+    <div>
+      <%= link_to event.title, event_path(event) %>
+    </div>
+  <% end %>
 <% end %>

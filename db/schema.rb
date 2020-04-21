@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_21_033216) do
+ActiveRecord::Schema.define(version: 2020_04_21_063732) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2020_04_21_033216) do
     t.text "venue_name", default: "", null: false
     t.text "venue_address", default: "", null: false
     t.text "venue_url", default: "", null: false
-    t.text "event_image", default: "", null: false
+    t.text "event_image", default: ""
     t.text "note", default: "", null: false
     t.boolean "release", default: false, null: false
     t.datetime "created_at", null: false

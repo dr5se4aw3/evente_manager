@@ -16,7 +16,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(event_params)
+    @event = current_user.events.build(event_params)
     if @event.save
       redirect_to @event, notice: 'Event was successfully created.'
     else
@@ -43,7 +43,7 @@ class EventsController < ApplicationController
     end
 
     def event_params
-      params.fetch(:event, {
+      params.require(:event).permit(
         :title,
         :date,
         :started_at,
@@ -52,8 +52,9 @@ class EventsController < ApplicationController
         :venue_address,
         :venue_url,
         :event_image,
+        :event_image_cache,
         :note,
         :release
-        })
+        )
     end
 end

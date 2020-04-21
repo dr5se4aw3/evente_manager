@@ -1,0 +1,53 @@
+
+
+<p>
+  <strong>image:</strong>
+  <% if @event.event_image.url %>
+    <%= image_tag @event.event_image.url %>
+  <% else %>
+    <%= image_tag "/public/no_image.jpg" %>
+  <% end %>
+</p>
+<p>
+  <strong>Title:</strong>
+  <%= @event.title %>
+</p>
+<p>
+  <strong>Host:</strong>
+  <%= @event.user.name %>
+</p>
+<p>
+  <strong>Date:</strong>
+  <%= @event.date %>
+</p>
+<p>
+  <strong>started_at:</strong>
+  <%= @event.started_at %>
+</p>
+<p>
+  <strong>closed_at:</strong>
+  <%= @event.closed_at %>
+</p>
+<p>
+  <strong>venue_name:</strong>
+  <%= @event.venue_name %>
+</p>
+<p>
+  <strong>venue_address:</strong>
+  <%= @event.venue_address %>
+</p>
+<p>
+  <strong>venue_url:</strong>
+  <%= @event.venue_url %>
+</p>
+<p>
+  <strong>note:</strong>
+  <%= @event.note %>
+</p>
+<p>
+  <strong>release:</strong>
+  <%=  @event.release ? "公開" : "未公開" %>
+</p>
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>

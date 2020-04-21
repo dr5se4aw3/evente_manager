@@ -1,0 +1,5 @@
+<h2>イベント一覧</h2>
+<%= link_to 'イベント新規作成', new_event_path %>
+<% @events.each do |event| %>
+  <%= render 'event', event: event %>
+<% end %>

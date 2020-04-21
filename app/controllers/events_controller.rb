@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = Event.all.order("date DESC")
+    @events = Event.all.order("held_on DESC")
   end
 
   def show
@@ -46,7 +46,7 @@ class EventsController < ApplicationController
     def event_params
       params.require(:event).permit(
         :title,
-        :date,
+        :held_on,
         :started_at,
         :closed_at,
         :venue_name,

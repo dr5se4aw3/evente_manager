@@ -17,18 +17,18 @@
   </div>
 
   <div class="field">
-    <%= form.label :date %>
-    <%= form.text_field :date %>
+    <%= form.label :held_on %>
+    <%= form.date_field :held_on %>
   </div>
 
   <div class="field">
     <%= form.label :started_at %>
-    <%= form.text_field :started_at %>
+    <%= form.time_select :started_at,{minute_step: 10} %>
   </div>
 
   <div class="field">
     <%= form.label :closed_at %>
-    <%= form.text_field :closed_at %>
+    <%= form.time_select :closed_at,{minute_step: 10}  %>
   </div>
 
   <div class="field">

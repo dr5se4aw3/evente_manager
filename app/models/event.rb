@@ -3,7 +3,6 @@ class Event < ApplicationRecord
   mount_uploader :event_image, ImageUploader
   # バリデーション
   validates :title, presence: true
-  validates :held_on, presence: true
   validates :started_at, presence: true
   validates :closed_at, presence: true
   validates :venue_name, presence: true

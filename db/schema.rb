@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_21_102624) do
+ActiveRecord::Schema.define(version: 2020_04_21_110131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,9 +27,6 @@ ActiveRecord::Schema.define(version: 2020_04_21_102624) do
   create_table "events", force: :cascade do |t|
     t.text "title", default: "", null: false
     t.bigint "user_id"
-    t.date "held_on", default: -> { "(CURRENT_DATE + '1 day'::interval)" }, null: false
-    t.time "started_at", null: false
-    t.time "closed_at", null: false
     t.text "venue_name", default: "", null: false
     t.text "venue_address", default: "", null: false
     t.text "venue_url", default: "", null: false
@@ -38,6 +35,8 @@ ActiveRecord::Schema.define(version: 2020_04_21_102624) do
     t.boolean "release", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "started_at", null: false
+    t.datetime "closed_at", null: false
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 

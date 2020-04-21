@@ -17,16 +17,12 @@
   <%= @event.user.name %>
 </p>
 <p>
-  <strong>Date:</strong>
-  <%= @event.held_on %>
-</p>
-<p>
   <strong>started_at:</strong>
-  <%= @event.started_at %>
+  <%= @event.started_at.to_s(:default) %>
 </p>
 <p>
   <strong>closed_at:</strong>
-  <%= @event.closed_at %>
+  <%= @event.closed_at.to_s(:default) %>
 </p>
 <p>
   <strong>venue_name:</strong>

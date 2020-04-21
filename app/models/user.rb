@@ -4,6 +4,7 @@ class User < ApplicationRecord
 
   # アソシエーション
   has_many :events, dependent: :destroy
+  has_many :event_participants, dependent: :destroy
 
   # バリデーション
   validates :name, presence: true, length: { maximum: 30 }
@@ -11,7 +12,7 @@ class User < ApplicationRecord
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
                     uniqueness: true
   before_validation { email.downcase! }
-  
+
   # deviseメソッド
   devise  :database_authenticatable, :registerable,
           :recoverable, :rememberable, :trackable, :validatable,:omniauthable, omniauth_providers: %i(google)

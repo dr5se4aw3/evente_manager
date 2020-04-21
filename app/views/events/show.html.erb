@@ -49,5 +49,11 @@
   <%=  @event.release ? "公開" : "未公開" %>
 </p>
 
+<% if @participant.present? %>
+  <%= link_to '参加を解除する', event_participant_path(id: @participant.id), method: :delete, class: 'btn btn-warning' %>
+<% else %>
+  <%= link_to '参加する', event_participants_path(event_id: @event.id), method: :post, class: 'btn btn-primary' %>
+<% end %>
+
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

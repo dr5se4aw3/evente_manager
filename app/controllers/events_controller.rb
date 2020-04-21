@@ -2,10 +2,11 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = Event.all
+    @events = Event.all.order("date DESC")
   end
 
   def show
+    @participant = current_user.event_participants.find_by(event_id: @event.id)
   end
 
   def new

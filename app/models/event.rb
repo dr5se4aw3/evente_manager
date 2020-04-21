@@ -11,4 +11,5 @@ class Event < ApplicationRecord
   validates :venue_url, presence: true
   # アソシエーション
   belongs_to :user
+  has_many :event_participants , dependent: :destroy
 end

@@ -1,7 +1,11 @@
 <div class="event_container">
 
   <div class="event_image">
-    <%= image_tag event.event_image.url %>
+    <% if event.event_image.url %>
+      <%= image_tag event.event_image.url %>
+    <% else %>
+      <%= image_tag '/public/no_image.jpg' %>
+    <% end %>
   </div>
 
   <div class="event_title">

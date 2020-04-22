@@ -11,4 +11,5 @@ class Event < ApplicationRecord
   # アソシエーション
   belongs_to :user
   has_many :event_participants , dependent: :destroy
+  has_many :participate_users, through: :favorites, source: :user
 end

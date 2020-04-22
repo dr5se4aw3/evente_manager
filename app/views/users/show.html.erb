@@ -1,7 +1,17 @@
 <h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
 <% provide(:title, @user.name) %>
 <h1>mypage : <%= @user.name %></h1>
 <% if current_user.provider == "" %>
   <%= link_to 'ユーザー情報を編集', edit_user_registration_path %>
+<% end %>
+
+<h3>参加/主催予定イベント一覧</h3>
+<%= month_calendar(attribute: :started_at, events: @participate_events) do |date, events| %>
+  <%= date.to_s(:date) %>
+
+  <% events.each do |event| %>
+    <div>
+      <%= link_to event.title, event_path(event) %>
+    </div>
+  <% end %>
 <% end %>

@@ -5,6 +5,7 @@ class User < ApplicationRecord
   # アソシエーション
   has_many :events, dependent: :destroy
   has_many :event_participants, dependent: :destroy
+  has_many :participate_events, through: :event_participants, source: :event
 
   # バリデーション
   validates :name, presence: true, length: { maximum: 30 }

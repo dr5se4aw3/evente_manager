@@ -10,17 +10,29 @@
   </head>
 
   <body>
-      <% if user_signed_in? %>
-        <%= link_to "ユーザー一覧", users_path %>
-        <%= link_to "イベント一覧", events_path %>
-        <%= link_to "マイページ", user_path(current_user) %>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to "新規登録", new_user_registration_path %>
-        <%= link_to "ログイン", new_user_session_path %>
-      <% end %>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+    <header>
+      <div class="header_container">
+        <div class="header_left">
+          <h2>Event Manager</h2>
+        </div>
+        <div class="header_right">
+          <% if user_signed_in? %>
+            <%= link_to "イベント一覧", events_path, class: "header_item btn-flat-double-border" %>
+            <%= link_to "マイページ", user_path(current_user), class: "header_item btn-flat-double-border" %>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header_item btn-flat-double-border" %>
+          <% else %>
+            <%= link_to "新規登録", new_user_registration_path, class: "header_item btn-flat-double-border" %>
+            <%= link_to "ログイン", new_user_session_path, class: "header_item btn-flat-double-border" %>
+          <% end %>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="flash_message">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+      </div>
       <%= yield %>
+    </main>
   </body>
 </html>

@@ -25,6 +25,13 @@ body{
  background-color: #ededed;
 
 }
+html{
+  width: 100%;
+}
+.main_container{
+  width: 80%;
+  margin: 1em auto;
+}
 
 header{
  height: 60px;
@@ -86,8 +93,4 @@ header .header_item{
 .border_double{
   border: double 4px black;
   border-radius: 8px;
-}
-.page_top{
-  width: 80%;
-  margin: 1em auto;
 }

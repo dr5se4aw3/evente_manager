@@ -1,67 +1,68 @@
-<%= form_with(model: event, local: true) do |form| %>
-  <% if event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+<div class="form_container">
+  <%= form_with(model: event, local: true) do |form| %>
+    <% if event.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
 
-      <ul>
-        <% event.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% event.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="form_main">
+      <table>
+        <tr>
+          <th><%= form.label :title%></th>
+          <td><%= form.text_field :title %></td>
+        </tr>
+        <tr>
+          <th><%= form.label :started_at %></th>
+          <td><%= form.datetime_select :started_at,{minute_step: 10} %></td>
+        </tr>
+        <tr>
+          <th><%= form.label :closed_at %></th>
+          <td><%= form.datetime_select :closed_at,{minute_step: 10}  %></td>
+        </tr>
+        <tr>
+          <th><%= form.label :venue_name %></th>
+          <td><%= form.text_field :venue_name %></td>
+        </tr>
+        <tr>
+          <th><%= form.label :venue_address %></th>
+          <td><%= form.text_field :venue_address %></td>
+        </tr>
+        <tr>
+          <th><%= form.label :venue_url %></th>
+          <td><%= form.text_field :venue_url %></td>
+        </tr>
+        <tr>
+          <th><%= form.label :event_image %></th>
+          <td>
+            <%= form.file_field :event_image %>
+            <%= image_tag(event.event_image.url) if event.event_image && event.event_image.url %>
+            <%= form.hidden_field :image_cache %>
+          </td>
+        </tr>
+        <tr>
+          <th><%= form.label :note %></th>
+          <td><%= form.text_area :note %></td>
+        </tr>
+        <tr>
+          <th><%= form.label :release %></th>
+            <td>
+              <%= form.radio_button :release, true  %>
+              <%= form.label :release, "公開する", {value: true, style: "display: inline-block;"} %>
+
+              <%= form.radio_button :release, false %>
+              <%= form.label :release, "公開しない", {value: false, style: "display: inline-block;"} %>
+            </td>
+        </tr>
+      </table>
+      <div class="actions">
+        <%= form.submit %>
+      </div>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :started_at %>
-    <%= form.datetime_select :started_at,{minute_step: 10} %>
-  </div>
-
-  <div class="field">
-    <%= form.label :closed_at %>
-    <%= form.datetime_select :closed_at,{minute_step: 10}  %>
-  </div>
-
-  <div class="field">
-    <%= form.label :venue_name %>
-    <%= form.text_field :venue_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :venue_address %>
-    <%= form.text_field :venue_address %>
-  </div>
-
-  <div class="field">
-    <%= form.label :venue_url %>
-    <%= form.text_field :venue_url %>
-  </div>
-
-  <div class="field">
-    <%= form.label :event_image %>
-    <%= form.file_field :event_image %>
-    <%= image_tag(event.event_image.url) if event.event_image && event.event_image.url %>
-    <%= form.hidden_field :image_cache %>
-  </div>
-
-  <div class="field">
-    <%= form.label :note %>
-    <%= form.text_area :note %>
-  </div>
-
-  <div class="field">
-    <%= form.label :公開しますか？ %>
-    <%= form.radio_button :release, true  %>
-    <%= form.label :release, "公開する", {value: true, style: "display: inline-block;"} %>
-    <%= form.radio_button :release, false %>
-    <%= form.label :release, "公開しない", {value: false, style: "display: inline-block;"} %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

@@ -28,11 +28,13 @@
       </div>
     </header>
     <main>
-      <div class="flash_message">
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
+      <div class="main_container">
+        <div class="flash_message">
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+        </div>
+        <%= yield %>
       </div>
-      <%= yield %>
     </main>
   </body>
 </html>

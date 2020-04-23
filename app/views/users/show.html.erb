@@ -6,8 +6,6 @@
     <% if current_user.provider == "" %>
       <div class="side_menu_item"><%= link_to 'ユーザー情報を編集', edit_user_registration_path %></div>
     <% end %>
-    <div class="side_menu_item"><%= link_to 'ユーザー情報を削除', user_registration_path, method: :delete, data: { confirm: '本当に削除しますか？' }  %></div>
-    <div class="side_menu_item"></div>
   </div>
 
   <div class="calendar border_double">

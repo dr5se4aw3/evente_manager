@@ -1,18 +1,25 @@
 
-<h1><%= @user.name %>さんのマイページ</h1>
-<% if current_user.provider == "" %>
-  <%= link_to 'ユーザー情報を編集', edit_user_registration_path %>
-<% end %>
-
-<div class="calendar">
-  <h3>参加・主催予定イベント一覧</h3>
-  <%= month_calendar(attribute: :started_at, events: @events) do |date, events| %>
-    <%= date.to_s(:date) %>
-
-    <% events.each do |event| %>
-      <div>
-        <%= link_to event.title, event_path(event) %>
-      </div>
+<h1 class="page_top"><%= @user.name %>さんのマイページ</h1>
+<div class="mypage_container">
+  <div class="side_menu border_double">
+    <div class="side_menu_item"><%= link_to "イベント一覧", events_path %></div>
+    <% if current_user.provider == "" %>
+      <div class="side_menu_item"><%= link_to 'ユーザー情報を編集', edit_user_registration_path %></div>
     <% end %>
-  <% end %>
+    <div class="side_menu_item"><%= link_to 'ユーザー情報を削除', user_registration_path, method: :delete, data: { confirm: '本当に削除しますか？' }  %></div>
+    <div class="side_menu_item"></div>
+  </div>
+
+  <div class="calendar border_double">
+    <h3>参加・主催予定イベント一覧</h3>
+    <%= month_calendar(attribute: :started_at, events: @events) do |date, events| %>
+      <%= date.to_s(:date) %>
+
+      <% events.each do |event| %>
+        <div>
+          <%= link_to event.title, event_path(event) %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>

@@ -1,55 +1,57 @@
+<div class="form_container">
+  <div class="form_main">
+    <div class="event_image">
+      <% if @event.event_image.url %>
+        <%= image_tag @event.event_image.url %>
+      <% else %>
+        <%= image_tag "no_image.jpg" %>
+      <% end %>
+    </div>
+    <table>
+      <tr>
+        <th>Title:</th>
+        <td><%= @event.title %></td>
+      </tr>
+      <tr>
+        <th>Host:</th>
+        <td><%= @event.user.name %></td>
+      </tr>
+      <tr>
+        <th>started_at:</th>
+        <td><%= @event.started_at.to_s(:default) %></td>
+      </tr>
+      <tr>
+        <th>closed_at:</th>
+        <td><%= @event.closed_at.to_s(:default) %></td>
+      </tr>
+      <tr>
+        <th>venue_name:</th>
+        <td><%= @event.venue_name %></td>
+      </tr>
+      <tr>
+        <th>venue_address:</th>
+        <td><%= @event.venue_address %></td>
+      </tr>
+      <tr>
+        <th>venue_url:</th>
+        <td><%= @event.venue_url %></td>
+      </tr>
+      <tr>
+        <th>note:</th>
+        <td><%= @event.note %></td>
+      </tr>
+      <tr>
+        <th>release:</th>
+        <td><%= @event.release ? "公開" : "未公開" %></td>
+      </tr>
+    </table>
+  </div>
 
-
-<p>
-  <strong>image:</strong>
-  <% if @event.event_image.url %>
-    <%= image_tag @event.event_image.url %>
+  <% if @participant.present? %>
+    <%= link_to '参加を解除する', event_participant_path(id: @participant.id), method: :delete, class: 'submit' %>
   <% else %>
-    <%= image_tag "/public/no_image.jpg" %>
+    <%= link_to '参加する', event_participants_path(event_id: @event.id), method: :post, class: 'submit' %>
   <% end %>
-</p>
-<p>
-  <strong>Title:</strong>
-  <%= @event.title %>
-</p>
-<p>
-  <strong>Host:</strong>
-  <%= @event.user.name %>
-</p>
-<p>
-  <strong>started_at:</strong>
-  <%= @event.started_at.to_s(:default) %>
-</p>
-<p>
-  <strong>closed_at:</strong>
-  <%= @event.closed_at.to_s(:default) %>
-</p>
-<p>
-  <strong>venue_name:</strong>
-  <%= @event.venue_name %>
-</p>
-<p>
-  <strong>venue_address:</strong>
-  <%= @event.venue_address %>
-</p>
-<p>
-  <strong>venue_url:</strong>
-  <%= @event.venue_url %>
-</p>
-<p>
-  <strong>note:</strong>
-  <%= @event.note %>
-</p>
-<p>
-  <strong>release:</strong>
-  <%=  @event.release ? "公開" : "未公開" %>
-</p>
 
-<% if @participant.present? %>
-  <%= link_to '参加を解除する', event_participant_path(id: @participant.id), method: :delete, class: 'btn btn-warning' %>
-<% else %>
-  <%= link_to '参加する', event_participants_path(event_id: @event.id), method: :post, class: 'btn btn-primary' %>
-<% end %>
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+  <p><%= link_to 'Edit', edit_event_path(@event), class:"btn-flat-double-border"  %> <%= link_to 'Back', events_path, class:"btn-flat-double-border"  %></p>
+</div>

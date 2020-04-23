@@ -24,8 +24,6 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'ransack'
 gem 'simple_calendar'
-gem 'bootstrap', '~> 4.1.1'
-gem 'jquery-rails'
 
 
 group :development, :test do

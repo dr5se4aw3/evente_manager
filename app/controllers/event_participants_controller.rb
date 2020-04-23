@@ -1,4 +1,5 @@
 class EventParticipantsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
   def index
     @participants = current_user.participate_events
   end

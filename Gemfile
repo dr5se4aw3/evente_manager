@@ -24,7 +24,7 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'ransack'
 gem 'simple_calendar'
-
+gem 'faker'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

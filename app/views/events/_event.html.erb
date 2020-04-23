@@ -1,22 +1,13 @@
-<div class="event_container">
 
-  <div class="event_image">
-    <% if event.event_image.url %>
-      <%= image_tag event.event_image.url %>
-    <% else %>
-      <%= image_tag '/public/no_image.jpg' %>
-    <% end %>
-  </div>
+<div class="event_image">
+  <% if event.event_image.url %>
+    <%= image_tag event.event_image.url %>
+  <% else %>
+    <%= image_tag 'no_image.jpg' %>
+  <% end %>
+</div>
 
-  <div class="event_title">
-    <%= event.title %>
-  </div>
-
-  <div class="event_menu">
-    <%= link_to '確認', event_path(event.id), class: 'btn btn-info'  %>
-    <% if current_user.id == event.user_id %>
-      <%= link_to '編集', edit_event_path(event), class: 'btn btn-success'  %>
-      <%= link_to '削除', event, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'  %>
-    <% end %>
-  </div>
+<div class="event_infomation">
+  <p><%= event.title %></p>
+  <p><%= event.started_at %></p>
 </div>

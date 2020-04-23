@@ -1,5 +1,12 @@
-<h2>イベント一覧</h2>
-<%= link_to 'イベント新規作成', new_event_path %>
-<% @events.each do |event| %>
-  <%= render 'event', event: event %>
-<% end %>
+<div class="page_top">
+  <h2>イベント一覧</h2>
+  <%= link_to 'イベント新規作成', new_event_path, class: "btn-flat-double-border" %>
+</div>
+
+<div class="event_main">
+  <% @events.each do |event| %>
+    <%= link_to event_path(event), class: "event_container" do %>
+      <%= render 'event', event: event %>
+    <% end %>
+  <% end %>
+</div>

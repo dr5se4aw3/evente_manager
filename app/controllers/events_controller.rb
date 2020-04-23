@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :check_event_host, only: [:edit,:update,:destroy]
   before_action :authenticate_user!
   def index
     @events = Event.where(release: true)
@@ -56,5 +57,11 @@ class EventsController < ApplicationController
         :note,
         :release
         )
+    end
+
+    def check_event_host
+      if current_user.id != @event.user_id
+        redirect_to event_path(@event), notice: "イベントの編集・削除は運営者のみが可能です。"
+      end
     end
 end

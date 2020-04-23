@@ -15,11 +15,11 @@
  *= require_self
  */
  /* ブロック確認用 */
-/*
 div{
   border: solid thin;
 }
-*/
+
+
 body{
  background-color: #ededed;
 }
@@ -70,4 +70,8 @@ header .btn-flat-double-border:hover {
  a{
    text-decoration: none;
    display: block;
+ }
+
+ main{
+   width: 100%;
  }

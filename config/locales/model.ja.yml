@@ -22,7 +22,7 @@ ja:
         note: 備考
         started_at: 開始日時
         closed_at: 終了日時
-        release: 告知
+        release: 公開
       event_participant:
         event_id: 参加イベント
         user_id: 参加者

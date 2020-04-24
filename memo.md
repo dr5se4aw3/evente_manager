@@ -1,1 +1,1 @@
-rspec spec/models/user_spec.rb
+rspec spec/system/user_spec.rb

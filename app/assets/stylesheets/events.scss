@@ -21,13 +21,20 @@
   display: flex;
 }
 .event_image{
-  height: 100%;
-  width: 40%;
-  margin: 0 0.5rem;
+  max-width: 570px;
+  max-width: 100%;
+  margin: 0 auto;
   text-align:center;
 }
-.event_image img{
-  height: 100%;
+.event_image_thumbnail{
+  height: 90%;
+  width: 40%;
+  margin: 0 auto;
+  text-align:center;
+}
+img{
+  max-height: 100%;
+  max-width: 100%;
 }
 
 .no_image{

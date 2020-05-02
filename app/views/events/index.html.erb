@@ -9,9 +9,17 @@
       </div>
       <div class="field">
         <%= f.label :started_at_gteq, "開始日時"%>
-        <%= f.text_field :started_at_gteq, class: %Q(date-picker)  %>
-        <%= f.label :closed_at_lteq, " 〜 " %>
-        <%= f.text_field :closed_at_lteq, class: %Q(date-picker)  %>
+        <% if @search.started_at_gteq.present?  %>
+          <%= f.text_field :started_at_gteq, class: %Q(date-picker), value: "#{ l @search.started_at_gteq, format: :date}" %>
+        <% else %>
+          <%= f.text_field :started_at_gteq, class: %Q(date-picker) %>
+        <% end %>
+        <%= f.label :started_at_lteq_end_of_day, " 〜 " %>
+        <% if @search.started_at_lteq_end_of_day.present?  %>
+          <%= f.text_field :started_at_lteq_end_of_day, class: %Q(date-picker), value: "#{ l @search.started_at_lteq_end_of_day, format: :date}" %>
+        <% else %>
+          <%= f.text_field :started_at_lteq_end_of_day, class: %Q(date-picker) %>
+        <% end %>
       </div>
 
       <%= f.submit %>

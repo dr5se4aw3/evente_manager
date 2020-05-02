@@ -1,5 +1,24 @@
 <div class="page_top">
   <h2>イベント一覧</h2>
+  <div class="event_search">
+    <h3>イベント検索</h3>
+    <%= search_form_for @search do |f| %>
+      <div class="field">
+        <%= f.label :title_cont, "タイトル（部分一致）" %>
+        <%= f.search_field :title_cont %>
+      </div>
+      <div class="field">
+        <%= f.label :started_at_gteq, "開始日時"%>
+        <%= f.text_field :started_at_gteq, class: %Q(date-picker)  %>
+        <%= f.label :closed_at_lteq, " 〜 " %>
+        <%= f.text_field :closed_at_lteq, class: %Q(date-picker)  %>
+      </div>
+
+      <%= f.submit %>
+    <% end %>
+
+  </div>
+
   <%= link_to 'イベント新規作成', new_event_path, class: "btn-flat-double-border" %>
 </div>
 

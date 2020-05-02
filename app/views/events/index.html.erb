@@ -3,11 +3,11 @@
   <div class="event_search">
     <h3>イベント検索</h3>
     <%= search_form_for @search do |f| %>
-      <div class="field">
+      <div class="field" id="title">
         <%= f.label :title_cont, "タイトル（部分一致）" %>
         <%= f.search_field :title_cont %>
       </div>
-      <div class="field">
+      <div class="field" id="started_at" >
         <%= f.label :started_at_gteq, "開始日時"%>
         <% if @search.started_at_gteq.present?  %>
           <%= f.text_field :started_at_gteq, class: %Q(date-picker), value: "#{ l @search.started_at_gteq, format: :date}" %>
@@ -21,6 +21,10 @@
           <%= f.text_field :started_at_lteq_end_of_day, class: %Q(date-picker) %>
         <% end %>
       </div>
+      <div class="field" id="user_name">
+        <%= f.label :user_name_cont, "運営ユーザー（部分一致）" %>
+        <%= f.search_field :user_name_cont %>
+      </div>
 
       <%= f.submit %>
     <% end %>
@@ -32,8 +36,6 @@
 
 <div class="event_main">
   <% @events.each do |event| %>
-    <%= link_to event_path(event), class: "event_container" do %>
-      <%= render 'event', event: event %>
-    <% end %>
+    <%= render 'event', event: event %>
   <% end %>
 </div>

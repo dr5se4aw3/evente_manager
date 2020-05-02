@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_action :check_event_host, only: [:edit,:update,:destroy]
   before_action :authenticate_user!
   def index
-    @events = Event.where(release: true).where('started_at >= ?', DateTime.now).order('started_at ASC')
+    @events = Event.where(release: true).where('started_at >= ?', DateTime.now).includes(:user).order('started_at ASC')
     @search = @events.ransack(params[:q])
     @events = @search.result
   end

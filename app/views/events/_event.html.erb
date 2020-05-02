@@ -1,13 +1,15 @@
+<%= link_to event_path(event), class: "event_container" do %>
+  <div class="event_image_thumbnail">
+    <% if event.event_image.url %>
+      <%= image_tag event.event_image.url %>
+    <% else %>
+      <%= image_tag 'no_image.jpg' %>
+    <% end %>
+  </div>
 
-<div class="event_image_thumbnail">
-  <% if event.event_image.url %>
-    <%= image_tag event.event_image.url %>
-  <% else %>
-    <%= image_tag 'no_image.jpg' %>
-  <% end %>
-</div>
-
-<div class="event_infomation">
-  <p><%= event.title %></p>
-  <p><%= event.started_at %></p>
-</div>
+  <div class="event_infomation">
+    <p><%= event.title %></p>
+    <p><%= l event.started_at,format: :long %></p>
+    <p><%= "運営：#{event.user.name}" %></p>
+  </div>
+<% end %>

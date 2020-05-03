@@ -26,7 +26,7 @@ gem 'ransack'
 gem 'simple_calendar'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-
+gem 'fog-aws'
 
 
 group :development, :test do

@@ -1,0 +1,271 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require simple_calendar
+ *= require jquery-ui/datepicker
+ *= require_tree .
+ *= require_self
+ */
+ /* ブロック確認用 */
+/*
+div{
+  border: solid thin;
+}
+*/
+/* normalize css */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
+
+/* 基盤 */
+body{
+ background-color: #ededed;
+ *{
+	 font-family: 'Hannotate SC',sans-serif;
+ }
+
+}
+html{
+  width: 100%;
+
+}
+
+header{
+ height: 60px;
+ background-color: gray;
+ h2{
+   color: #fff;
+ }
+}
+
+
+/* ヘッダーコンテンツ */
+.header_container{
+ height: 100%;
+ padding: 0 30px;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+
+ .header_left{
+  height: auto;
+  display: flex;
+  vertical-align: middle;
+ }
+ .header_right{
+   width: auto;
+   display: flex;
+   justify-content: space-around;
+ }
+
+ .header_item{
+   margin: 0 0.5rem;
+   cursor: pointer;
+ }
+}
+
+.btn-flat-double-border {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  color: black;
+  border: double 4px black;
+  border-radius: 3px;
+  transition: .4s;
+  background-color: #fff;
+}
+.btn-flat-double-border:hover {
+  background: #fffbef;
+}
+
+ header .flash_message{
+   background-color: gray;
+ }
+
+ a{
+   text-decoration: none;
+   color: black;
+   display: block;
+ }
+ a:hover{
+   background-color: #cfcfcf;
+ }
+
+
+
+/* メインコンテンツ */
+ main{
+   width: 100%;
+ }
+
+form *{
+  font-size: 1rem;
+}
+
+ .main_container{
+   display: block;
+   height: 100%;
+   width: 70%;
+   margin: 0 auto;
+   background-color: #fff;
+   padding: 1rem 2rem;
+ }
+
+.border_double{
+  border: double 4px black;
+  border-radius: 8px;
+}
+
+.event_image{
+  margin: 0 auto;
+}
+
+.submit{
+  text-align: center;
+  width: 100%;
+  position: relative;
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  color: #FFF;
+  background: #fd9535;
+  border-bottom: solid 2px #d27d00;
+  border-radius: 4px;
+  box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+  font-weight: bold;
+}
+
+.submit:hover {
+  border-bottom: solid 2px #fd9535;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+}
+
+
+/* イベント一覧・イベントリンク */
+
+.event_link{
+	margin: 2rem 0;
+	padding: 1rem;
+	height: 300px;
+	display: flex;
+	.event_image_thumbnail{
+		max-height: 300px;
+		width: 30%;
+		border: double black 5px;
+		margin-right: 2rem;
+		img{
+			max-height: 100%;
+			max-width: 100%;
+		}
+	}
+	.event_infomation{
+		font-size: 1.7rem;
+		padding: 2rem 0;
+		width: 70%;
+		background-image: url("../../images/p0101_s.png");
+		background-repeat: repeat-x;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		ul{
+			li{
+				margin-bottom: 1rem;
+			}
+		}
+		.tag{
+			position: relative;
+			.tag_text{
+				position: absolute;
+				top: 10px;
+				left: 20px;
+			}
+			.tag_host{
+				width: 320px;
+				height: 70px;
+			}
+		}
+	}
+}
+
+/* イベント詳細画面 */
+.event_container{
+	font-size: 1.7rem;
+}
+
+/* simple_calendar */
+.simple-calendar {
+  .day {
+    height: 5rem;
+  }
+
+  .wday-0 {}
+  .wday-1 {}
+  .wday-2 {}
+  .wday-3 {}
+  .wday-4 {}
+  .wday-5 {}
+  .wday-6 {}
+
+  .today {}
+  .past {}
+  .future {}
+
+  .start-date {}
+
+  .prev-month {}
+  .next-month { }
+  .current-month {}
+
+  .has-events {}
+}

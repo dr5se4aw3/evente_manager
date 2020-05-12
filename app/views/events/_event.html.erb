@@ -1,25 +1,37 @@
-<%= link_to event_path(event), class: "event_container" do %>
-  <div class="event_image_thumbnail">
-    <% if event.event_image.url %>
-      <%= image_tag event.event_image.url %>
-    <% else %>
-      <%= image_tag 'no_image.jpg' %>
-    <% end %>
-  </div>
 
-  <div class="event_infomation">
-    <p><%= event.title %></p>
-    <p><%= l event.started_at,format: :long %></p>
-    <p class="host_user">
-      <%= "運営：#{event.user.name}" %>
-      <% if current_user.id == event.user_id %>
-        <br><span>あなたが主催者です</span>
+  <%= link_to event_path(event), class: "event_link" do %>
+    <div class="event_image_thumbnail">
+      <% if event.event_image.url %>
+        <%= image_tag event.event_image.url %>
+      <% else %>
+        <%= image_tag 'no_image.jpg' %>
       <% end %>
-    </p>
-    <% if event.participate_users.include?(current_user) %>
-      <p class="participated">
-        参加済み
-      </p>
-    <% end %>
-  </div>
-<% end %>
+    </div>
+
+    <div class="event_infomation">
+      <ul>
+        <li><%= event.title %></li>
+        <li>開催：<%= l event.started_at,format: :long %></li>
+        <li><%= "運営：#{event.user.name}" %></li>
+        <% if current_user.id == event.user_id %>
+          <li>
+            <div class="tag">
+              <%= image_tag 'b4.png', class:'tag_image tag_host' %>
+              <p class="tag_text">
+                あなたが主催者です
+              </p>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+
+      <% if event.participate_users.include?(current_user) %>
+        <div class="tag">
+          <%= image_tag 'b7.png', class:'tag_image' %>
+          <p class="tag_text">
+            参加済み
+          </p>
+        </div>
+      <% end %>
+    </div>
+  <% end %>

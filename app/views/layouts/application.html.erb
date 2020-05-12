@@ -5,20 +5,21 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application'%>
   </head>
 
   <body>
     <header>
       <div class="header_container">
         <div class="header_left">
+          <span id="menu_switch" class="header_item btn-flat-double-border">メニュー</span>
+
           <h2>Event Manager</h2>
         </div>
         <div class="header_right">
           <% if user_signed_in? %>
-            <%= link_to "イベント一覧", events_path, class: "header_item btn-flat-double-border" %>
-            <%= link_to "マイページ", user_path(current_user), class: "header_item btn-flat-double-border" %>
+            <%= link_to 'イベント新規作成', new_event_path, class: "btn-flat-double-border" %>
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header_item btn-flat-double-border" %>
           <% else %>
             <%= link_to "新規登録", new_user_registration_path, class: "header_item btn-flat-double-border" %>
@@ -28,6 +29,17 @@
       </div>
     </header>
     <main>
+      <div class="side_menu">
+        <ul>
+          <li><%= link_to "イベント一覧", events_path %></li>
+          <li><%= link_to "マイページ", user_path(current_user) %></li>
+          <% if current_user.provider == "" %>
+            <li><%= link_to 'ユーザー情報を編集', edit_user_registration_path %></li>
+          <% end %>
+        </ul>
+          <div class="side_menu_item"></div>
+
+      </div>
       <div class="main_container">
         <div class="flash_message">
           <p class="notice"><%= notice %></p>

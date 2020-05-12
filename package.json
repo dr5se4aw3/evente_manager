@@ -2,6 +2,7 @@
   "name": "event_manager",
   "private": true,
   "dependencies": {
+    "bootstrap": "3",
     "jquery": "^3.5.0"
   }
 }

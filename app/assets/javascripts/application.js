@@ -13,8 +13,28 @@
 //= require jquery
 //= require jquery-ui/widgets/datepicker
 //= require jquery-ui/i18n/datepicker-ja
-//= require jquery_ujs
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require_tree .
+$(document).ready(function () {
+  // デフォルトで1番目を開くようにする
+  // $('ul').eq(0).show();
+
+  //ボタンを押した時、ボタンの色を変える
+  colored = false
+  $('#menu_switch').click(function() {
+    // ボタンの色をつける
+    if (colored) {
+      $(this).css('background-color','')
+      colored = false
+    }else {
+      $(this).css('background-color','#ffd242')
+      colored = true
+    }
+    // メニュー表示/非表示
+    $('.side_menu').animate({
+      height : 'toggle'
+    }, 'normal')
+
+  });
+});

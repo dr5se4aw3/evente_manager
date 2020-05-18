@@ -1,5 +1,5 @@
-<div class="form_container">
-  <div class="form_main">
+<div class="event_container">
+  <div class="event_main">
     <div class="event_image">
       <% if @event.event_image.url %>
         <%= image_tag @event.event_image.url %>
@@ -7,44 +7,44 @@
         <%= image_tag "no_image.jpg" %>
       <% end %>
     </div>
-    <table>
-      <tr>
-        <th><%= Event.human_attribute_name('title') %>:</th>
-        <td><%= @event.title %></td>
-      </tr>
-      <tr>
-        <th><%= Event.human_attribute_name('user_id') %>:</th>
-        <td><%= @event.user.name %></td>
-      </tr>
-      <tr>
-        <th><%= Event.human_attribute_name('started_at') %>:</th>
-        <td><%= @event.started_at.to_s(:default) %></td>
-      </tr>
-      <tr>
-        <th><%= Event.human_attribute_name('closed_at') %>:</th>
-        <td><%= @event.closed_at.to_s(:default) %></td>
-      </tr>
-      <tr>
-        <th><%= Event.human_attribute_name('venue_name') %>:</th>
-        <td><%= @event.venue_name %></td>
-      </tr>
-      <tr>
-        <th><%= Event.human_attribute_name('venue_address') %>:</th>
-        <td><%= @event.venue_address %></td>
-      </tr>
-      <tr>
-        <th><%= Event.human_attribute_name('venue_url') %>:</th>
-        <td><%= @event.venue_url %></td>
-      </tr>
-      <tr>
-        <th><%= Event.human_attribute_name('note') %>:</th>
-        <td><%= @event.note %></td>
-      </tr>
-      <tr>
-        <th><%= Event.human_attribute_name('release') %>:</th>
-        <td><%= @event.release ? "公開" : "未公開" %></td>
-      </tr>
-    </table>
+    <ul>
+      <li>
+        <%= Event.human_attribute_name('title') %>:
+        <%= @event.title %>
+      </li>
+      <li>
+        <%= Event.human_attribute_name('user_id') %>:
+        <%= @event.user.name %>
+      </li>
+      <li>
+        <%= Event.human_attribute_name('started_at') %>:
+        <%= l @event.started_at, format: :long %>
+      </li>
+      <li>
+        <%= Event.human_attribute_name('closed_at') %>:
+        <%= l @event.closed_at, format: :long %>
+      </li>
+      <li>
+        <%= Event.human_attribute_name('venue_name') %>:
+        <%= @event.venue_name %>
+      </li>
+      <li>
+        <%= Event.human_attribute_name('venue_address') %>:
+        <%= @event.venue_address %>
+      </li>
+      <li>
+        <%= Event.human_attribute_name('venue_url') %>:
+        <%= @event.venue_url %>
+      </li>
+      <li>
+        <%= Event.human_attribute_name('note') %>:
+        <%= @event.note %>
+      </li>
+      <li>
+        <%= Event.human_attribute_name('release') %>:
+        <%= @event.release ? "公開" : "未公開" %>
+      </li>
+    </ul>
   </div>
 
   <% if current_user.id != @event.user_id %>

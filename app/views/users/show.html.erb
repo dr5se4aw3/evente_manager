@@ -1,12 +1,5 @@
 
 <h1 class="page_top"><%= @user.name %>さんのマイページ</h1>
-<div class="mypage_container">
-  <div class="side_menu border_double">
-    <div class="side_menu_item"><%= link_to "イベント一覧", events_path %></div>
-    <% if current_user.provider == "" %>
-      <div class="side_menu_item"><%= link_to 'ユーザー情報を編集', edit_user_registration_path %></div>
-    <% end %>
-  </div>
 
   <div class="calendar border_double">
     <h3>参加・主催予定イベント一覧</h3>

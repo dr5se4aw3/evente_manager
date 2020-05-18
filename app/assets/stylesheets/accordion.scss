@@ -1,0 +1,22 @@
+
+.side_menu {
+  background-color: #fff;
+  border-radius: 10px;
+  display: none;
+  position: absolute;
+  width: 300px;
+  filter: drop-shadow(10px 10px 10px rgba(0,0,0,0.6));
+  li{
+    background-color: #F5B4B3;
+    height: 3.5rem;
+    margin: 2rem 0;
+    list-style: none;
+    a{
+      font-size: 1.5rem;
+      text-decoration: none;
+      display: block;
+      color: #fff;
+      padding: 1rem;
+    }
+  }
+}

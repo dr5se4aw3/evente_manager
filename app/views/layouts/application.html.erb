@@ -13,8 +13,9 @@
     <header>
       <div class="header_container">
         <div class="header_left">
-          <span id="menu_switch" class="header_item btn-flat-double-border">メニュー</span>
-
+          <% if user_signed_in? %>
+            <span id="menu_switch" class="header_item btn-flat-double-border">メニュー</span>
+          <% end %>
           <h2>Event Manager</h2>
         </div>
         <div class="header_right">
@@ -29,17 +30,18 @@
       </div>
     </header>
     <main>
-      <div class="side_menu">
-        <ul>
-          <li><%= link_to "イベント一覧", events_path %></li>
-          <li><%= link_to "マイページ", user_path(current_user) %></li>
-          <% if current_user.provider == "" %>
-            <li><%= link_to 'ユーザー情報を編集', edit_user_registration_path %></li>
-          <% end %>
-        </ul>
-          <div class="side_menu_item"></div>
-
-      </div>
+      <% if user_signed_in? %>
+        <div class="side_menu">
+          <ul>
+            <li><%= link_to "イベント一覧", events_path %></li>
+            <li><%= link_to "マイページ", user_path(current_user.id) %></li>
+            <% if current_user.provider == "" %>
+              <li><%= link_to 'ユーザー情報を編集', edit_user_registration_path %></li>
+            <% end %>
+          </ul>
+            <div class="side_menu_item"></div>
+        </div>
+      <% end %>
       <div class="main_container">
         <div class="flash_message">
           <p class="notice"><%= notice %></p>

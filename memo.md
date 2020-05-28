@@ -1,5 +1,6 @@
 
 heroku:https://lit-beach-94453.herokuapp.com/
+aws:18.180.249.28
 ### 追加機能
 #### ransackによる検索機能
 - イベントタイトル（部分一致）
